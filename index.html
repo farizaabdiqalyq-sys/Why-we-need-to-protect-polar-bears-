@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Study Companion: Why We Need to Protect Polar Bears</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for clean academic icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        arctic: {
+                            50: '#f4f8fb',
+                            100: '#e6f0f7',
+                            200: '#cbe0ee',
+                            300: '#9ec6e0',
+                            400: '#6ba5cd',
+                            500: '#4587b6',
+                            600: '#336b99',
+                            700: '#2a567c',
+                            800: '#264967',
+                            900: '#0f2942',
+                            950: '#091a2b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom 3D Flip Card Animations & Arctic Aesthetics */
+        body {
+            background-color: #f4f8fb;
+            color: #0f2942;
+            -webkit-font-smoothing: antialiased;
+        }
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e6f0f7;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #9ec6e0;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6ba5cd;
+        }
+        /* Subtle highlight for vocabulary in sample answers */
+        .vocab-highlight {
+            background-color: #dbeafe;
+            color: #1e3a8a;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 6px;
+            border-bottom: 2px solid #3b82f6;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Top Navigation & Header -->
+    <header class="bg-gradient-to-r from-arctic-950 via-arctic-900 to-arctic-800 text-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-arctic-500/20 border border-arctic-400/30 p-2.5 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-snowflake text-arctic-300 text-2xl"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold uppercase tracking-wider bg-arctic-600 text-arctic-100 px-2.5 py-0.5 rounded-full">IELTS Cambridge 16 • Test 1</span>
+                            <span class="text-xs text-arctic-300 hidden sm:inline">Reading Passage 1</span>
+                        </div>
+                        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white mt-0.5">Why We Need to Protect Polar Bears</h1>
+                    </div>
+                </div>
+
+                <!-- Quick Action: Read Full Passage Modal Trigger -->
+                <div class="flex items-center gap-3">
+                    <button onclick="togglePassageModal()" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 active:bg-white/25 text-white border border-white/20 px-4 py-2 rounded-xl text-sm font-medium transition shadow-sm">
+                        <i class="fa-solid fa-book-open text-arctic-300"></i>
+                        <span>Read Full Passage</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Navigation Tabs -->
+            <nav class="flex space-x-2 mt-5 border-t border-arctic-700/60 pt-3 overflow-x-auto" aria-label="Study Sections">
+                <button id="tab-vocab" onclick="switchTab('vocab')" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition whitespace-nowrap bg-white text-arctic-900 shadow-sm">
+                    <i class="fa-solid fa-layer-group text-arctic-600"></i>
+                    <span>1. Vocabulary Study Deck (28)</span>
+                </button>
+                <button id="tab-quiz" onclick="switchTab('quiz')" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition whitespace-nowrap text-arctic-200 hover:bg-white/10 hover:text-white">
+                    <i class="fa-solid fa-clipboard-check text-arctic-300"></i>
+                    <span>2. Vocab & Reading Quiz</span>
+                </button>
+                <button id="tab-speaking" onclick="switchTab('speaking')" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition whitespace-nowrap text-arctic-200 hover:bg-white/10 hover:text-white">
+                    <i class="fa-solid fa-microphone-lines text-arctic-300"></i>
+                    <span>3. IELTS Speaking Practice</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        <!-- ===================================================================== -->
+        <!-- SECTION 1: VOCABULARY FLASHCARDS & STUDY DECK                         -->
+        <!-- ===================================================================== -->
+        <section id="section-vocab" class="space-y-6">
+            <!-- Controls Bar -->
+            <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-arctic-200/80 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <!-- Search Input -->
+                <div class="relative flex-grow max-w-md">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="vocab-search" oninput="filterVocabulary()" placeholder="Search word, meaning, or synonym..." class="w-full pl-10 pr-4 py-2.5 bg-arctic-50 border border-arctic-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-arctic-500 focus:bg-white transition">
+                </div>
+
+                <!-- View Toggle & Mastery Filter -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="flex items-center bg-arctic-100 p-1 rounded-xl">
+                        <button id="btn-card-view" onclick="setVocabView('cards')" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-white text-arctic-900 shadow-sm transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-clone"></i> Flashcards
+                        </button>
+                        <button id="btn-table-view" onclick="setVocabView('table')" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold text-arctic-700 hover:text-arctic-900 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-table-list"></i> List View
+                        </button>
+                    </div>
+
+                    <button onclick="shuffleVocab()" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium bg-arctic-50 hover:bg-arctic-100 text-arctic-800 border border-arctic-200 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-shuffle text-arctic-600"></i> Shuffle
+                    </button>
+
+                    <span id="vocab-count-badge" class="text-xs font-semibold text-arctic-700 bg-arctic-100 px-3 py-2 rounded-xl">
+                        Showing 28 / 28 words
+                    </span>
+                </div>
+            </div>
+
+            <!-- Interactive Single Spotlight Card + Grid View -->
+            <div id="vocab-cards-container" class="space-y-6">
+                <!-- Spotlight Featured Flashcard -->
+                <div class="bg-gradient-to-br from-arctic-900 to-arctic-800 rounded-2xl p-5 sm:p-7 text-white shadow-md">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider text-arctic-300 flex items-center gap-2">
+                            <i class="fa-solid fa-star text-amber-400"></i> Interactive Focus Card (<span id="spotlight-index">1</span> of <span id="spotlight-total">28</span>)
+                        </span>
+                        <span class="text-xs text-arctic-300">Click card to flip • Use arrows to navigate</span>
+                    </div>
+
+                    <div class="max-w-2xl mx-auto">
+                        <div id="spotlight-card" onclick="toggleSpotlightFlip()" class="cursor-pointer perspective-1000 h-64 sm:h-72 w-full select-none">
+                            <div id="spotlight-inner" class="relative w-full h-full transition-transform duration-500 transform-style-3d">
+                                <!-- Front -->
+                                <div class="absolute inset-0 backface-hidden bg-white text-arctic-900 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between border-2 border-arctic-200">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-arctic-100 text-arctic-700" id="spot-number">#1</span>
+                                        <button onclick="event.stopPropagation(); speakWord(currentSpotlightWord.word)" class="p-2 rounded-full bg-arctic-50 hover:bg-arctic-100 text-arctic-700 transition" title="Listen to pronunciation">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                    </div>
+                                    <div class="text-center my-auto">
+                                        <h2 id="spot-word" class="text-3xl sm:text-4xl font-extrabold text-arctic-950 tracking-tight">Far-reaching</h2>
+                                        <p class="text-xs sm:text-sm text-slate-400 mt-3 flex items-center justify-center gap-1.5">
+                                            <i class="fa-solid fa-rotate"></i> Tap card to reveal meaning, synonyms & text context
+                                        </p>
+                                    </div>
+                                    <div class="text-center text-xs font-medium text-arctic-600">IELTS Academic Vocabulary</div>
+                                </div>
+
+                                <!-- Back -->
+                                <div class="absolute inset-0 backface-hidden rotate-y-180 bg-arctic-50 text-arctic-900 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col justify-between border-2 border-arctic-400 overflow-y-auto">
+                                    <div>
+                                        <div class="flex justify-between items-center border-b border-arctic-200 pb-2 mb-3">
+                                            <h3 id="spot-word-back" class="text-lg font-bold text-arctic-900">Far-reaching</h3>
+                                            <span class="text-xs font-semibold text-arctic-600 bg-white px-2.5 py-0.5 rounded-full border border-arctic-200">Definition & Context</span>
+                                        </div>
+                                        <p id="spot-meaning" class="text-sm sm:text-base font-medium text-slate-800 mb-3">Having important or widely applicable effects.</p>
+                                        <div class="mb-3">
+                                            <span class="text-xs font-bold uppercase text-arctic-600 tracking-wider">Synonyms:</span>
+                                            <div id="spot-synonyms" class="flex flex-wrap gap-1.5 mt-1"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-xl border border-arctic-200/90 text-xs sm:text-sm text-slate-700 italic">
+                                        <span class="font-semibold not-italic text-arctic-800 block mb-0.5 text-xs uppercase">From the Reading Passage:</span>
+                                        "<span id="spot-example">...their disappearance could have far-reaching consequences.</span>"
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Spotlight Navigation Controls -->
+                        <div class="flex items-center justify-between mt-4 gap-3">
+                            <button onclick="prevSpotlight()" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-arrow-left"></i> Previous
+                            </button>
+                            <button onclick="toggleSpotlightFlip()" class="px-5 py-2.5 rounded-xl bg-arctic-500 hover:bg-arctic-400 text-white font-semibold text-sm transition shadow">
+                                Flip Card
+                            </button>
+                            <button onclick="nextSpotlight()" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition flex items-center justify-center gap-2">
+                                Next <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid of All Flip Cards -->
+                <div>
+                    <h3 class="text-base font-bold text-arctic-900 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-grip text-arctic-600"></i> All Vocabulary Flashcards (Click any card to flip)
+                    </h3>
+                    <div id="flashcards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table / List View (Hidden by default) -->
+            <div id="vocab-table-container" class="hidden bg-white rounded-2xl shadow-sm border border-arctic-200 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-arctic-900 text-white text-xs uppercase tracking-wider">
+                                <th class="py-3.5 px-4 font-semibold w-12">#</th>
+                                <th class="py-3.5 px-4 font-semibold">Target Word / Phrase</th>
+                                <th class="py-3.5 px-4 font-semibold">Meaning</th>
+                                <th class="py-3.5 px-4 font-semibold">Synonyms</th>
+                                <th class="py-3.5 px-4 font-semibold">Context in Passage</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vocab-table-body" class="divide-y divide-arctic-100 text-sm">
+                            <!-- Dynamically populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- SECTION 2: VOCABULARY & READING COMPREHENSION QUIZ                    -->
+        <!-- ===================================================================== -->
+        <section id="section-quiz" class="hidden space-y-8">
+            <!-- Quiz Header & Score Summary -->
+            <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-arctic-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-arctic-950">IELTS Vocabulary & Reading Comprehension Quiz</h2>
+                    <p class="text-sm text-slate-600 mt-1">Test your mastery of all 28 target words and your understanding of Cambridge 16 Test 1 Passage 1.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="bg-arctic-50 border border-arctic-200 px-4 py-2 rounded-xl text-center">
+                        <span class="text-xs text-slate-500 block font-medium">Total Score</span>
+                        <span id="quiz-score-display" class="text-lg font-extrabold text-arctic-900">0 / 27</span>
+                    </div>
+                    <button onclick="resetAndShuffleQuiz()" class="px-4 py-2.5 rounded-xl bg-arctic-800 hover:bg-arctic-900 text-white text-sm font-semibold transition flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-rotate-right"></i> Retake / Shuffle Quiz
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sub-navigation pills for Quiz Parts -->
+            <div class="flex flex-wrap gap-2">
+                <a href="#quiz-part-a" class="px-4 py-2 rounded-xl bg-arctic-100 hover:bg-arctic-200 text-arctic-900 text-xs sm:text-sm font-semibold transition">
+                    Part A: Vocabulary Quiz (15 Questions)
+                </a>
+                <a href="#quiz-part-b" class="px-4 py-2 rounded-xl bg-arctic-100 hover:bg-arctic-200 text-arctic-900 text-xs sm:text-sm font-semibold transition">
+                    Part B: IELTS Reading Comprehension (12 Questions)
+                </a>
+                <button onclick="togglePassageModal()" class="px-4 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 text-xs sm:text-sm font-semibold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-book-open"></i> Reference Text
+                </button>
+            </div>
+
+            <!-- PART A: VOCABULARY QUIZ (15 Questions) -->
+            <div id="quiz-part-a" class="space-y-4">
+                <div class="flex items-center justify-between border-b border-arctic-200 pb-2">
+                    <h3 class="text-lg font-bold text-arctic-900 flex items-center gap-2">
+                        <span class="bg-arctic-800 text-white text-xs px-2.5 py-1 rounded-lg">Part A</span>
+                        Vocabulary Mastery Quiz (Definitions, Synonyms & Context)
+                    </h3>
+                    <span id="part-a-score" class="text-xs font-bold text-arctic-700 bg-arctic-100 px-3 py-1 rounded-full">0 / 15 Correct</span>
+                </div>
+                <div id="vocab-quiz-list" class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <!-- Dynamically rendered -->
+                </div>
+            </div>
+
+            <!-- PART B: IELTS READING COMPREHENSION (12 Questions) -->
+            <div id="quiz-part-b" class="space-y-4 pt-4">
+                <div class="flex items-center justify-between border-b border-arctic-200 pb-2">
+                    <h3 class="text-lg font-bold text-arctic-900 flex items-center gap-2">
+                        <span class="bg-arctic-800 text-white text-xs px-2.5 py-1 rounded-lg">Part B</span>
+                        IELTS Reading Comprehension (True/False/Not Given & Sentence Completion)
+                    </h3>
+                    <span id="part-b-score" class="text-xs font-bold text-arctic-700 bg-arctic-100 px-3 py-1 rounded-full">0 / 12 Correct</span>
+                </div>
+
+                <!-- Sub-section B1: True / False / Not Given -->
+                <div class="bg-white p-5 rounded-2xl border border-arctic-200 shadow-sm space-y-4">
+                    <div class="bg-arctic-50 p-3.5 rounded-xl border border-arctic-200/80 text-xs sm:text-sm text-slate-700">
+                        <strong class="text-arctic-900 block mb-1">Questions 1–7: TRUE / FALSE / NOT GIVEN</strong>
+                        Do the following statements agree with the information given in Reading Passage 1? Choose <strong>TRUE</strong> if the statement agrees with the information, <strong>FALSE</strong> if it contradicts the information, or <strong>NOT GIVEN</strong> if there is no information on this.
+                    </div>
+                    <div id="tfng-quiz-list" class="space-y-4">
+                        <!-- Dynamically rendered -->
+                    </div>
+                </div>
+
+                <!-- Sub-section B2: Summary & Sentence Completion -->
+                <div class="bg-white p-5 rounded-2xl border border-arctic-200 shadow-sm space-y-4">
+                    <div class="bg-arctic-50 p-3.5 rounded-xl border border-arctic-200/80 text-xs sm:text-sm text-slate-700">
+                        <strong class="text-arctic-900 block mb-1">Questions 8–12: Summary & Sentence Completion (ONE WORD ONLY from the passage)</strong>
+                        Complete the sentences below using <strong>ONE WORD ONLY</strong> from the passage for each answer. Type your answer and click <em>Check</em>.
+                    </div>
+                    <div id="completion-quiz-list" class="space-y-4">
+                        <!-- Dynamically rendered -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- SECTION 3: IELTS SPEAKING PRACTICE (PARTS 1, 2 & 3)                   -->
+        <!-- ===================================================================== -->
+        <section id="section-speaking" class="hidden space-y-6">
+            <!-- Speaking Intro & Audio Recorder Studio -->
+            <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-arctic-200 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+                <div class="max-w-2xl">
+                    <span class="text-xs font-bold uppercase tracking-wider text-arctic-600 bg-arctic-100 px-2.5 py-1 rounded-md">Speaking Simulator</span>
+                    <h2 class="text-xl font-bold text-arctic-950 mt-2">IELTS Speaking Practice: Wildlife, Science & Conservation</h2>
+                    <p class="text-sm text-slate-600 mt-1">Practice answering IELTS Parts 1, 2, and 3 using vocabulary from the polar bear text. Click any vocabulary hint chip to see its definition, or record your voice to evaluate your fluency.</p>
+                </div>
+
+                <!-- Self-Recording Audio Widget -->
+                <div class="bg-arctic-50 border border-arctic-200 p-4 rounded-2xl flex flex-col gap-2.5 min-w-[280px]">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-arctic-900 uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-microphone text-rose-500"></i> Voice Practice Recorder
+                        </span>
+                        <span id="rec-status" class="text-xs font-semibold text-slate-500">Ready</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button id="btn-start-rec" onclick="startRecording()" class="flex-1 bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold py-2 px-3 rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm">
+                            <i class="fa-solid fa-circle"></i> Record
+                        </button>
+                        <button id="btn-stop-rec" onclick="stopRecording()" disabled class="flex-1 bg-slate-700 hover:bg-slate-800 disabled:opacity-40 text-white text-xs font-semibold py-2 px-3 rounded-xl transition flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-stop"></i> Stop
+                        </button>
+                    </div>
+                    <audio id="audio-playback" controls class="w-full h-8 hidden mt-1"></audio>
+                    <p id="rec-fallback-msg" class="text-[11px] text-slate-500 hidden leading-tight"></p>
+                </div>
+            </div>
+
+            <!-- Vocab Hint Definition Toast Banner (Displayed when user clicks a chip) -->
+            <div id="speaking-vocab-banner" class="hidden bg-arctic-900 text-white p-4 rounded-2xl shadow-md flex items-center justify-between gap-4 transition">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span id="svb-word" class="font-bold text-arctic-300 text-base">Word</span>
+                        <span id="svb-synonyms" class="text-xs bg-white/10 px-2 py-0.5 rounded-full text-arctic-100">Synonyms</span>
+                    </div>
+                    <p id="svb-meaning" class="text-sm text-white/90 mt-1">Meaning appears here.</p>
+                </div>
+                <button onclick="document.getElementById('speaking-vocab-banner').classList.add('hidden')" class="text-arctic-300 hover:text-white p-1.5">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Speaking Part Selector Tabs -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterSpeakingPart('all')" id="sp-filter-all" class="sp-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-arctic-800 text-white shadow-sm transition">All Parts (1, 2 & 3)</button>
+                <button onclick="filterSpeakingPart('part1')" id="sp-filter-part1" class="sp-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-arctic-800 border border-arctic-200 hover:bg-arctic-50 transition">Part 1: Interview</button>
+                <button onclick="filterSpeakingPart('part2')" id="sp-filter-part2" class="sp-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-arctic-800 border border-arctic-200 hover:bg-arctic-50 transition">Part 2: Cue Card & Timer</button>
+                <button onclick="filterSpeakingPart('part3')" id="sp-filter-part3" class="sp-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-arctic-800 border border-arctic-200 hover:bg-arctic-50 transition">Part 3: Discussion</button>
+            </div>
+
+            <!-- PART 2 DEDICATED CUE CARD WITH BUILT-IN TIMERS -->
+            <div id="speaking-part2-container" class="bg-gradient-to-br from-arctic-900 to-arctic-800 text-white rounded-2xl p-6 shadow-md border border-arctic-700">
+                <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
+                    <div class="space-y-3 flex-grow">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-amber-400 text-arctic-950 text-xs font-extrabold px-2.5 py-0.5 rounded-md uppercase">IELTS Speaking Part 2 • Cue Card</span>
+                            <span class="text-xs text-arctic-300">1 min prep • 2 mins speaking</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Describe a wild animal that you find fascinating or think needs protection.</h3>
+                        <div class="bg-white/10 border border-white/15 rounded-xl p-4 text-sm text-arctic-100 space-y-1.5">
+                            <p class="font-semibold text-white">You should say:</p>
+                            <ul class="list-disc list-inside space-y-1 ml-1">
+                                <li>what the animal is and where it lives</li>
+                                <li>what special physical or behavioral abilities it has</li>
+                                <li>why this animal is facing threats today</li>
+                                <li>and explain why you believe it is important to protect this species.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Target Vocabulary Chips -->
+                        <div class="pt-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-arctic-300 block mb-2">Target Vocabulary Hints (Click chip for meaning):</span>
+                            <div class="flex flex-wrap gap-2" id="part2-vocab-chips"></div>
+                        </div>
+                    </div>
+
+                    <!-- Built-in 1-Min Prep & 2-Min Speaking Timers -->
+                    <div class="bg-arctic-950/70 border border-arctic-700 p-5 rounded-2xl min-w-[260px] flex flex-col items-center text-center space-y-4">
+                        <span id="timer-mode-label" class="text-xs font-bold uppercase tracking-wider text-arctic-300">Timer Ready</span>
+                        <div id="speaking-timer-display" class="text-4xl font-extrabold font-mono tracking-wider text-white">01:00</div>
+                        <div class="grid grid-cols-2 gap-2 w-full">
+                            <button onclick="startCueTimer(60, '1-Minute Preparation')" class="bg-arctic-600 hover:bg-arctic-500 text-white text-xs font-semibold py-2 px-3 rounded-xl transition">
+                                <i class="fa-solid fa-brain mr-1"></i> 1m Prep
+                            </button>
+                            <button onclick="startCueTimer(120, '2-Minute Speaking')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold py-2 px-3 rounded-xl transition">
+                                <i class="fa-solid fa-stopwatch mr-1"></i> 2m Speak
+                            </button>
+                        </div>
+                        <button onclick="stopCueTimer()" class="w-full bg-white/10 hover:bg-white/20 text-arctic-200 text-xs font-medium py-1.5 rounded-lg transition">
+                            Reset Timer
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Part 2 Sample Band 8+ Answer Toggle -->
+                <div class="mt-5 pt-4 border-t border-arctic-700/80">
+                    <button onclick="toggleSampleAnswer('part2-sample')" class="text-xs sm:text-sm font-semibold text-amber-300 hover:text-amber-200 flex items-center gap-2 transition">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>Show / Hide Sample Band 8.5 Model Response</span>
+                    </button>
+                    <div id="part2-sample" class="hidden mt-3 bg-white text-slate-800 p-5 rounded-xl text-sm leading-relaxed space-y-2 shadow-inner">
+                        <p>"I would like to talk about the polar bear, which is truly one of the most <span class="vocab-highlight">majestic</span> creatures on our planet. Native to the Arctic Circle, these bears are uniquely adapted to survive in <span class="vocab-highlight">extreme conditions</span> where temperatures plunge far below freezing. One fascinating biological feature is their thick layer of <span class="vocab-highlight">adipose tissue</span>, which provides both insulation and energy reserves. Remarkably, even though humans with that much body fat would be considered <span class="vocab-highlight">obese</span> and suffer from heart disease, polar bears remain completely healthy thanks to a specialized <span class="vocab-highlight">genome</span> that regulates cholesterol.</p>
+                        <p>Beyond their biology, polar bears are surprisingly intelligent and <span class="vocab-highlight">agile</span>. Although people often assume bears are aggressive, researchers have documented <span class="vocab-highlight">deliberate</span> and <span class="vocab-highlight">thought-out</span> behaviors, such as using branches as tools to <span class="vocab-highlight">dislodge</span> food. Unfortunately, climate change is rapidly <span class="vocab-highlight">depleting</span> the sea ice they depend on for hunting and building <span class="vocab-highlight">maternity dens</span> for their <span class="vocab-highlight">cubs</span>. Protecting them is vital because their extinction would have <span class="vocab-highlight">far-reaching</span> ecological consequences, and studying how female bears prevent bone loss while <span class="vocab-highlight">hibernating</span> could offer huge medical <span class="vocab-highlight">benefits</span> for <span class="vocab-highlight">bedridden</span> patients."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART 1 & PART 3 QUESTION CARDS CONTAINER -->
+            <div id="speaking-questions-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- Dynamically populated -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- COLLAPSIBLE / MODAL FULL READING PASSAGE REFERENCE                    -->
+    <!-- ===================================================================== -->
+    <div id="passage-modal" class="fixed inset-0 bg-arctic-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[88vh] flex flex-col shadow-2xl border border-arctic-200 overflow-hidden">
+            <div class="bg-arctic-900 text-white px-6 py-4 flex items-center justify-between">
+                <div>
+                    <span class="text-xs uppercase tracking-wider text-arctic-300 font-bold">IELTS Cambridge 16 • Test 1 • Reading Passage 1</span>
+                    <h3 class="text-lg font-bold">Why we need to protect polar bears</h3>
+                </div>
+                <button onclick="togglePassageModal()" class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4 text-sm sm:text-base text-slate-700 leading-relaxed">
+                <p>Polar bears are being increasingly threatened by the effects of climate change, but their disappearance could have <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">far-reaching</strong> consequences. They are uniquely adapted to the <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">extreme conditions</strong> of the Arctic Circle, where temperatures can reach -40°C. One reason for this is that they have up to 11 centimetres of fat underneath their skin. Humans with comparative levels of <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">adipose tissue</strong> would be considered <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">obese</strong> and would be <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">likely</strong> to suffer from diabetes and heart disease. Yet the polar bear experiences no such consequences.</p>
+                <p>A 2014 study by Shi Ping Liu and colleagues <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">sheds light on</strong> this mystery. They compared the genetic structure of polar bears with that of their closest relatives from a warmer climate, the brown bears. This allowed them to determine the genes that have allowed polar bears to survive in one of the toughest environments on Earth. Liu and his colleagues found the polar bears had a gene known as APOB, which reduces levels of low-density lipoproteins (LDLs) – a form of 'bad' cholesterol. In humans, mutations of this gene are associated with increased risk of heart disease. Polar bears may therefore be an important study model to understand heart disease in humans.</p>
+                <p>The <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">genome</strong> of the polar bear may also provide the solution for another condition, one that particularly affects our older generation: osteoporosis. This is a disease where bones show <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">reduced density</strong>, usually caused by insufficient exercise, reduced calcium intake or food starvation. Bone tissue is constantly being <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">remodelled</strong>, meaning that bone is added or removed, depending on nutrient availability and the stress that the bone is under. Female polar bears, however, undergo extreme conditions during every pregnancy. Once autumn comes around, these females will dig <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">maternity dens</strong> in the snow and will remain there throughout the winter, both before and after the birth of their <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">cubs</strong>. This process results in about six months of fasting, where the female bears have to keep themselves and their cubs alive, <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">depleting</strong> their own calcium and calorie reserves. Despite this, their bones remain strong and <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">dense</strong>.</p>
+                <p>Physiologists Alanda Lennox and Allen Goodship found an explanation for this paradox in 2008. They discovered that pregnant bears were able to increase the density of their bones before they started to build their dens. In addition, six months later, when they finally <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">emerged</strong> from the den with their cubs, there was no evidence of significant loss of bone density. <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">Hibernating</strong> brown bears do not have this capacity and must therefore <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">resort to</strong> major bone reformation in the following spring. If the mechanism of bone remodelling in polar bears can be understood, many <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">bedridden</strong> humans, and even astronauts, could potentially benefit.</p>
+                <p>The medical <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">benefits</strong> of the polar bear for humanity certainly have their importance in our conservation efforts, but these should not be the only factors taken into consideration. We <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">tend to</strong> want to protect animals we think are intelligent and possess emotions, such as elephants and primates. Bears, on the other hand, seem to be perceived as stupid and in many cases violent. And yet <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">anecdotal evidence</strong> from the field challenges those assumptions, suggesting for example that polar bears have good problem-solving abilities. A male bear called GoGo in Tennoji Zoo, Osaka, has even been observed making use of a tool to manipulate his environment. The bear used a tree branch on multiple occasions to <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">dislodge</strong> a piece of meat hung out of his reach. Problem-solving ability has also been witnessed in wild polar bears, although not as obviously as with GoGo. A calculated move by a male bear involved running and jumping onto barrels in an attempt to get to a photographer standing on a platform four metres high.</p>
+                <p>In other studies, such as one by Alison Ames in 2008, polar bears showed <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">deliberate</strong> and focussed manipulation. For example, Ames observed bears putting objects in piles and then knocking them over in what appeared to be a game. The study demonstrates that bears are capable of <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">agile</strong> and <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">thought-out</strong> behaviours. These examples suggest bears have greater creativity and problem-solving abilities than previously thought.</p>
+                <p>As for emotions, while the evidence is once again anecdotal, many bears have been seen to <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">hit out</strong> at ice and snow - seemingly out of frustration - when they have just missed out on a kill. Moreover, polar bears can form unusual relationships with other species, including playing with the dogs used to pull <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">sleds</strong> in the Arctic. Remarkably, one <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">hand-raised</strong> polar bear called Agee has formed a close relationship with her owner Mark Dumas to the point where they even swim together. This is even more astonishing since polar bears are known to actively hunt humans in the wild.</p>
+                <p>If climate change were to lead to their extinction, this would mean not only the loss of potential breakthroughs in human medicine, but more importantly, the disappearance of an intelligent, <strong class="text-arctic-900 bg-arctic-100 px-1 rounded">majestic</strong> animal.</p>
+            </div>
+            <div class="bg-arctic-50 px-6 py-3 border-t border-arctic-200 flex justify-between items-center">
+                <span class="text-xs text-slate-500">All 28 key vocabulary terms are highlighted in the text above.</span>
+                <button onclick="togglePassageModal()" class="px-4 py-2 rounded-xl bg-arctic-800 text-white text-xs font-semibold hover:bg-arctic-900 transition">Close Passage</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-arctic-200 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+            <p>IELTS Academic Reading & Vocabulary Interactive Companion • Based on Cambridge IELTS 16 Test 1</p>
+            <p>28 Target Lexical Items • Reading Comprehension • Speaking Parts 1–3</p>
+        </div>
+    </footer>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT APPLICATION LOGIC & DATA                                   -->
+    <!-- ===================================================================== -->
+    <script>
+        // 1. COMPLETE 28 KEY VOCABULARY DATASET
+        const vocabularyData = [
+            { id: 1, word: "Far-reaching", meaning: "Having important or widely applicable effects.", synonyms: ["Extensive", "Significant", "Widespread"], example: "Polar bears are being increasingly threatened by the effects of climate change, but their disappearance could have far-reaching consequences." },
+            { id: 2, word: "Extreme conditions", meaning: "Very harsh or severe environments.", synonyms: ["Harsh surroundings", "Severe weather"], example: "They are uniquely adapted to the extreme conditions of the Arctic Circle, where temperatures can reach -40°C." },
+            { id: 3, word: "Adipose tissue", meaning: "Body fat used for energy storage and insulation.", synonyms: ["Fatty tissue", "Body fat"], example: "Humans with comparative levels of adipose tissue would be considered obese and would be likely to suffer from diabetes." },
+            { id: 4, word: "Obese", meaning: "Grossly overweight or fat.", synonyms: ["Overweight", "Corpulent"], example: "Humans with comparative levels of adipose tissue would be considered obese and would be likely to suffer from diabetes and heart disease." },
+            { id: 5, word: "Likely", meaning: "Such as well might happen or be true; probable.", synonyms: ["Probable", "Expected", "Liable"], example: "...would be considered obese and would be likely to suffer from diabetes and heart disease." },
+            { id: 6, word: "Sheds light on", meaning: "To help explain something or make it easier to understand.", synonyms: ["Explains", "Clarifies", "Illuminates"], example: "A 2014 study by Shi Ping Liu and colleagues sheds light on this mystery." },
+            { id: 7, word: "Genome", meaning: "The complete set of genetic material in an organism.", synonyms: ["Genetic code", "DNA"], example: "The genome of the polar bear may also provide the solution for another condition, one that particularly affects our older generation: osteoporosis." },
+            { id: 8, word: "Reduced density", meaning: "A decrease in how solid or thick something is (bones).", synonyms: ["Weakness", "Thinness"], example: "This is a disease where bones show reduced density, usually caused by insufficient exercise, reduced calcium intake or food starvation." },
+            { id: 9, word: "Remodelled", meaning: "To change the structure or form of something.", synonyms: ["Restructured", "Reshaped", "Reconstructed"], example: "Bone tissue is constantly being remodelled, meaning that bone is added or removed, depending on nutrient availability." },
+            { id: 10, word: "Maternity dens", meaning: "Shelters made by mother bears to give birth.", synonyms: ["Breeding lairs", "Birthing shelters"], example: "Once autumn comes around, these females will dig maternity dens in the snow and will remain there throughout the winter." },
+            { id: 11, word: "Cubs", meaning: "The young of certain carnivorous animals (bears).", synonyms: ["Offspring", "Young", "Infants"], example: "...will remain there throughout the winter, both before and after the birth of their cubs." },
+            { id: 12, word: "Depleting", meaning: "Reduction in the number or quantity of something.", synonyms: ["Exhausting", "Draining", "Consuming"], example: "...where the female bears have to keep themselves and their cubs alive, depleting their own calcium and calorie reserves." },
+            { id: 13, word: "Dense", meaning: "Closely compacted in substance; thick.", synonyms: ["Solid", "Thick", "Heavy"], example: "Despite this, their bones remain strong and dense." },
+            { id: 14, word: "Emerged", meaning: "To move out of or away from something and become visible.", synonyms: ["Appeared", "Came out"], example: "In addition, six months later, when they finally emerged from the den with their cubs, there was no evidence of significant loss of bone density." },
+            { id: 15, word: "Hibernating", meaning: "Spending the winter in a dormant or sleeping state.", synonyms: ["Dormant", "Sleeping"], example: "Hibernating brown bears do not have this capacity and must therefore resort to major bone reformation in the following spring." },
+            { id: 16, word: "Resort to", meaning: "To turn to a strategy or action because there is no other choice.", synonyms: ["Turn to", "Fall back on"], example: "Hibernating brown bears do not have this capacity and must therefore resort to major bone reformation in the following spring." },
+            { id: 17, word: "Bedridden", meaning: "Confined to bed because of sickness or old age.", synonyms: ["Confined to bed", "Incapacitated"], example: "If the mechanism of bone remodelling in polar bears can be understood, many bedridden humans, and even astronauts, could potentially benefit." },
+            { id: 18, word: "Benefits", meaning: "Advantages or positive results gained from something.", synonyms: ["Advantages", "Gains", "Merits"], example: "The medical benefits of the polar bear for humanity certainly have their importance in our conservation efforts..." },
+            { id: 19, word: "Tend to", meaning: "To be likely to behave in a particular way.", synonyms: ["Be inclined to", "Lean towards"], example: "We tend to want to protect animals we think are intelligent and possess emotions, such as elephants and primates." },
+            { id: 20, word: "Anecdotal evidence", meaning: "Information based on personal accounts rather than facts.", synonyms: ["Informal reports", "Hearsay", "Stories"], example: "And yet anecdotal evidence from the field challenges those assumptions, suggesting for example that polar bears have good problem-solving abilities." },
+            { id: 21, word: "Dislodge", meaning: "To knock or force something out of its position.", synonyms: ["Remove", "Displace", "Knock loose"], example: "The bear used a tree branch on multiple occasions to dislodge a piece of meat hung out of his reach." },
+            { id: 22, word: "Deliberate", meaning: "Done on purpose; intentional.", synonyms: ["Intentional", "Planned", "Conscious"], example: "In other studies, such as one by Alison Ames in 2008, polar bears showed deliberate and focussed manipulation." },
+            { id: 23, word: "Agile", meaning: "Able to move quickly and easily.", synonyms: ["Nimble", "Quick", "Lithe"], example: "The study demonstrates that bears are capable of agile and thought-out behaviours." },
+            { id: 24, word: "Thought-out", meaning: "Produced by or showing careful consideration.", synonyms: ["Planned", "Reasoned", "Calculated"], example: "The study demonstrates that bears are capable of agile and thought-out behaviours." },
+            { id: 25, word: "Hit out", meaning: "To strike a blow or make a violent physical movement.", synonyms: ["Strike", "Lash out", "Swing at"], example: "Many bears have been seen to hit out at ice and snow - seemingly out of frustration - when they have just missed out on a kill." },
+            { id: 26, word: "Sleds", meaning: "Vehicles on runners used for traveling over snow.", synonyms: ["Sleighs", "Sledges"], example: "...including playing with the dogs used to pull sleds in the Arctic." },
+            { id: 27, word: "Hand-raised", meaning: "An animal that has been brought up by humans.", synonyms: ["Hand-reared", "Domestic-raised"], example: "Remarkably, one hand-raised polar bear called Agee has formed a close relationship with her owner Mark Dumas..." },
+            { id: 28, word: "Majestic", meaning: "Having or showing impressive beauty or dignity.", synonyms: ["Grand", "Noble", "Magnificent"], example: "...the disappearance of an intelligent, majestic animal." }
+        ];
+
+        // 2. QUIZ DATA (PART A: 15 VOCABULARY QUESTIONS)
+        const initialVocabQuestions = [
+            {
+                id: "v1",
+                question: "Which phrase means 'to help explain something or make it easier to understand'?",
+                options: ["Resort to", "Sheds light on", "Hit out", "Tend to"],
+                answer: 1,
+                explanation: "'Sheds light on' means to clarify, illuminate, or help explain a mystery or complex topic."
+            },
+            {
+                id: "v2",
+                question: "In the text, female polar bears spend six months fasting, ________ their own calcium and calorie reserves.",
+                options: ["depleting", "dislodging", "remodelling", "emerging"],
+                answer: 0,
+                explanation: "'Depleting' means exhausting, draining, or reducing the supply of a resource."
+            },
+            {
+                id: "v3",
+                question: "What is the best synonym for 'Adipose tissue'?",
+                options: ["Genetic code", "Body fat", "Bone marrow", "Muscle fibre"],
+                answer: 1,
+                explanation: "'Adipose tissue' refers to fatty tissue or body fat used for energy storage and insulation."
+            },
+            {
+                id: "v4",
+                question: "GoGo the polar bear used a tree branch to ________ a piece of meat hung out of his reach.",
+                options: ["dislodge", "hibernate", "resort to", "emerge"],
+                answer: 0,
+                explanation: "'Dislodge' means to knock, force, or remove something out of its fixed position."
+            },
+            {
+                id: "v5",
+                question: "Which word describes an animal or person able to move quickly and easily?",
+                options: ["Obese", "Bedridden", "Agile", "Dense"],
+                answer: 2,
+                explanation: "'Agile' means nimble, quick, and able to move with ease."
+            },
+            {
+                id: "v6",
+                question: "Information based on personal accounts or informal stories rather than rigorous scientific facts is called:",
+                options: ["Genome", "Anecdotal evidence", "Extreme conditions", "Reduced density"],
+                answer: 1,
+                explanation: "'Anecdotal evidence' refers to informal reports, personal observations, or hearsay."
+            },
+            {
+                id: "v7",
+                question: "Because brown bears cannot maintain bone density in winter, they must ________ major bone reformation in spring.",
+                options: ["resort to", "hit out", "shed light on", "tend to"],
+                answer: 0,
+                explanation: "'Resort to' means to turn to or fall back on a strategy when there is no other option."
+            },
+            {
+                id: "v8",
+                question: "Which word means 'confined to bed because of sickness or old age'?",
+                options: ["Hand-raised", "Bedridden", "Hibernating", "Majestic"],
+                answer: 1,
+                explanation: "'Bedridden' describes someone incapacitated and confined to bed due to illness or age."
+            },
+            {
+                id: "v9",
+                question: "Alison Ames observed polar bears showing ________ and focused manipulation of objects.",
+                options: ["deliberate", "likely", "obese", "far-reaching"],
+                answer: 0,
+                explanation: "'Deliberate' means done intentionally, consciously, or on purpose."
+            },
+            {
+                id: "v10",
+                question: "What are 'maternity dens'?",
+                options: ["Vehicles used for traveling over snow", "Shelters dug by mother bears to give birth", "Areas with reduced bone density", "Zoos where bears are hand-raised"],
+                answer: 1,
+                explanation: "'Maternity dens' are birthing shelters or breeding lairs built by pregnant mother bears."
+            },
+            {
+                id: "v11",
+                question: "Which of the following is a synonym for 'Far-reaching'?",
+                options: ["Extensive", "Nimble", "Dormant", "Corpulent"],
+                answer: 0,
+                explanation: "'Far-reaching' means having extensive, widespread, or significant consequences."
+            },
+            {
+                id: "v12",
+                question: "After missing a kill, frustrated polar bears have been seen to ________ at ice and snow.",
+                options: ["hit out", "emerge", "tend to", "remodel"],
+                answer: 0,
+                explanation: "'Hit out' means to strike a blow or lash out physically."
+            },
+            {
+                id: "v13",
+                question: "The complete set of genetic material (DNA) in an organism is its:",
+                options: ["Genome", "Sled", "Cub", "Benefit"],
+                answer: 0,
+                explanation: "A 'genome' is the complete set of genetic material or DNA in an organism."
+            },
+            {
+                id: "v14",
+                question: "Agee, a ________ polar bear brought up by humans, swims with her owner Mark Dumas.",
+                options: ["hand-raised", "hibernating", "thought-out", "dense"],
+                answer: 0,
+                explanation: "'Hand-raised' (or hand-reared) means an animal brought up and cared for by humans."
+            },
+            {
+                id: "v15",
+                question: "Which adjective best describes something 'having impressive beauty or dignity'?",
+                options: ["Majestic", "Probable", "Incapacitated", "Draining"],
+                answer: 0,
+                explanation: "'Majestic' means grand, noble, and showing impressive beauty or dignity."
+            }
+        ];
+
+        // 3. QUIZ DATA (PART B: IELTS READING COMPREHENSION)
+        const tfngQuestions = [
+            {
+                id: "tf1",
+                statement: "Polar bears suffer from various health problems, such as diabetes and heart disease, due to their high levels of fat.",
+                answer: "FALSE",
+                explanation: "Paragraph 1 states that while humans with comparative levels of adipose tissue would suffer from diabetes and heart disease, 'the polar bear experiences no such consequences.'"
+            },
+            {
+                id: "tf2",
+                statement: "The study done by Liu and his colleagues compared different groups of polar bears.",
+                answer: "FALSE",
+                explanation: "Paragraph 2 states they compared the genetic structure of polar bears with that of 'their closest relatives from a warmer climate, the brown bears'—not different groups of polar bears."
+            },
+            {
+                id: "tf3",
+                statement: "Liu and colleagues were the first researchers to compare polar bears and brown bears genetically.",
+                answer: "NOT GIVEN",
+                explanation: "The passage mentions the 2014 study by Liu and colleagues comparing their genetic structure, but it does not state whether they were the first researchers to do so."
+            },
+            {
+                id: "tf4",
+                statement: "Polar bears are able to control their levels of 'bad' cholesterol by genetic means.",
+                answer: "TRUE",
+                explanation: "Paragraph 2 explains that polar bears have a gene known as APOB, which reduces levels of low-density lipoproteins (LDLs) – a form of 'bad' cholesterol."
+            },
+            {
+                id: "tf5",
+                statement: "Female polar bears are able to survive for about six months without food.",
+                answer: "TRUE",
+                explanation: "Paragraph 3 states that remaining in maternity dens throughout the winter 'results in about six months of fasting, where the female bears have to keep themselves and their cubs alive.'"
+            },
+            {
+                id: "tf6",
+                statement: "It was found that the bones of female polar bears were very weak when they came out of their dens in spring.",
+                answer: "FALSE",
+                explanation: "Paragraph 4 states that six months later, when they finally emerged from the den with their cubs, 'there was no evidence of significant loss of bone density' and their bones remained strong and dense."
+            },
+            {
+                id: "tf7",
+                statement: "The polar bear's mechanism for increasing bone density could also be used by people one day.",
+                answer: "TRUE",
+                explanation: "Paragraph 4 notes: 'If the mechanism of bone remodelling in polar bears can be understood, many bedridden humans, and even astronauts, could potentially benefit.'"
+            }
+        ];
+
+        const completionQuestions = [
+            {
+                id: "comp1",
+                promptBefore: "People think of bears as unintelligent and",
+                promptAfter: ", yet field evidence suggests they have strong problem-solving skills.",
+                answer: "violent",
+                explanation: "Paragraph 5: 'Bears, on the other hand, seem to be perceived as stupid and in many cases violent.'"
+            },
+            {
+                id: "comp2",
+                promptBefore: "In Tennoji Zoo, a bear called GoGo has been seen using a",
+                promptAfter: "as a tool to knock down some meat.",
+                answer: "branch",
+                explanation: "Paragraph 5: 'The bear used a tree branch on multiple occasions to dislodge a piece of meat hung out of his reach.' (Accepts 'branch')."
+            },
+            {
+                id: "comp3",
+                promptBefore: "A wild polar bear worked out a method of reaching a platform where a",
+                promptAfter: "was located.",
+                answer: "photographer",
+                explanation: "Paragraph 5: 'A calculated move by a male bear involved running and jumping onto barrels in an attempt to get to a photographer standing on a platform four metres high.'"
+            },
+            {
+                id: "comp4",
+                promptBefore: "Polar bears have displayed behaviour such as conscious manipulation of objects and activity similar to a",
+                promptAfter: ".",
+                answer: "game",
+                explanation: "Paragraph 6: 'Ames observed bears putting objects in piles and then knocking them over in what appeared to be a game.'"
+            },
+            {
+                id: "comp5",
+                promptBefore: "Bears may also display emotions; for example, they may make movements suggesting",
+                promptAfter: "if disappointed when hunting.",
+                answer: "frustration",
+                explanation: "Paragraph 7: '...many bears have been seen to hit out at ice and snow - seemingly out of frustration - when they have just missed out on a kill.'"
+            }
+        ];
+
+        // 4. SPEAKING PRACTICE DATA (PARTS 1 & 3)
+        const speakingPrompts = [
+            {
+                part: "part1",
+                partLabel: "Part 1 • Introduction & Interview",
+                question: "Are there many wild animals in your country, and which ones are most popular?",
+                hints: ["Majestic", "Tend to", "Extreme conditions", "Cubs"],
+                sample: "In my country, we <span class='vocab-highlight'>tend to</span> have a diverse range of wildlife, particularly in our national parks and mountainous regions. Eagles and snow leopards are especially admired because they are such <span class='vocab-highlight'>majestic</span> creatures capable of surviving in <span class='vocab-highlight'>extreme conditions</span>. People are always fascinated when conservationists share footage of mothers raising their <span class='vocab-highlight'>cubs</span> in the wild."
+            },
+            {
+                part: "part1",
+                partLabel: "Part 1 • Introduction & Interview",
+                question: "How do you feel about zoos? Do you think they help protect animals?",
+                hints: ["Hand-raised", "Benefits", "Anecdotal evidence", "Deliberate"],
+                sample: "I have mixed feelings about zoos, though I recognize their <span class='vocab-highlight'>benefits</span> for conservation and research. For instance, <span class='vocab-highlight'>hand-raised</span> animals in well-managed facilities allow scientists to observe <span class='vocab-highlight'>deliberate</span> problem-solving behaviours that would be hard to film in the wild. However, I believe enclosures must be spacious and stimulating rather than purely for entertainment."
+            },
+            {
+                part: "part3",
+                partLabel: "Part 3 • Two-way Discussion",
+                question: "Why do humans often prioritize protecting certain animals over others?",
+                hints: ["Tend to", "Majestic", "Agile", "Far-reaching"],
+                sample: "Psychologically, humans <span class='vocab-highlight'>tend to</span> feel more empathy toward species that appear intelligent, <span class='vocab-highlight'>agile</span>, or emotionally expressive, like primates or elephants. Large, <span class='vocab-highlight'>majestic</span> mammals also attract more media attention. Unfortunately, this bias can make us overlook less charismatic species whose extinction would still have <span class='vocab-highlight'>far-reaching</span> consequences for biodiversity."
+            },
+            {
+                part: "part3",
+                partLabel: "Part 3 • Two-way Discussion",
+                question: "How can studying wild animals contribute to breakthroughs in human medicine?",
+                hints: ["Sheds light on", "Genome", "Bedridden", "Reduced density"],
+                sample: "Studying how animals adapt to harsh habitats often <span class='vocab-highlight'>sheds light on</span> complex biological mysteries. For example, analyzing the polar bear's <span class='vocab-highlight'>genome</span> and seeing how females avoid <span class='vocab-highlight'>reduced density</span> in their bones during winter could revolutionize treatments for osteoporosis, offering huge hope to <span class='vocab-highlight'>bedridden</span> patients and astronauts."
+            },
+            {
+                part: "part3",
+                partLabel: "Part 3 • Two-way Discussion",
+                question: "What are the most serious consequences of climate change on Arctic wildlife?",
+                hints: ["Depleting", "Maternity dens", "Resort to", "Likely"],
+                sample: "Rising global temperatures are rapidly <span class='vocab-highlight'>depleting</span> Arctic sea ice, which is essential for hunting and building <span class='vocab-highlight'>maternity dens</span>. As their natural habitats shrink, animals are <span class='vocab-highlight'>likely</span> to suffer from starvation or <span class='vocab-highlight'>resort to</span> entering human settlements in search of food, increasing conflict between humans and wildlife."
+            },
+            {
+                part: "part3",
+                partLabel: "Part 3 • Two-way Discussion",
+                question: "Do you think personal stories or scientific data are more effective in convincing people to protect nature?",
+                hints: ["Anecdotal evidence", "Thought-out", "Benefits", "Far-reaching"],
+                sample: "While rigorous scientific data is vital for designing <span class='vocab-highlight'>thought-out</span> environmental policies, <span class='vocab-highlight'>anecdotal evidence</span> often resonates more deeply with the general public. Hearing stories about individual animals—such as bears playing with <span class='vocab-highlight'>sled</span> dogs or using tools—emotionalizes the issue and helps people grasp the <span class='vocab-highlight'>far-reaching</span> moral <span class='vocab-highlight'>benefits</span> of conservation."
+            }
+        ];
+
+        // =====================================================================
+        // STATE MANAGEMENT & INITIALIZATION
+        // =====================================================================
+        let currentVocabList = [...vocabularyData];
+        let spotlightIdx = 0;
+        let isSpotlightFlipped = false;
+        let currentVocabView = 'cards';
+
+        let activeVocabQuestions = [...initialVocabQuestions];
+        let userAnswers = {}; // stores { qId: true/false }
+
+        // =====================================================================
+        // TAB SWITCHING & MODAL LOGIC
+        // =====================================================================
+        function switchTab(tabName) {
+            // Hide all sections
+            ['vocab', 'quiz', 'speaking'].forEach(sec => {
+                document.getElementById(`section-${sec}`).classList.add('hidden');
+                const btn = document.getElementById(`tab-${sec}`);
+                btn.classList.remove('bg-white', 'text-arctic-900', 'shadow-sm');
+                btn.classList.add('text-arctic-200', 'hover:bg-white/10', 'hover:text-white');
+            });
+
+            // Show selected section
+            document.getElementById(`section-${tabName}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabName}`);
+            activeBtn.classList.remove('text-arctic-200', 'hover:bg-white/10', 'hover:text-white');
+            activeBtn.classList.add('bg-white', 'text-arctic-900', 'shadow-sm');
+        }
+
+        function togglePassageModal() {
+            const modal = document.getElementById('passage-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        // =====================================================================
+        // SECTION 1: VOCABULARY FLASHCARDS & TABLE LOGIC
+        // =====================================================================
+        function renderSpotlightCard() {
+            if (currentVocabList.length === 0) return;
+            if (spotlightIdx >= currentVocabList.length) spotlightIdx = 0;
+            const item = currentVocabList[spotlightIdx];
+            window.currentSpotlightWord = item;
+
+            document.getElementById('spotlight-index').textContent = spotlightIdx + 1;
+            document.getElementById('spotlight-total').textContent = currentVocabList.length;
+            document.getElementById('spot-number').textContent = `#${item.id}`;
+            document.getElementById('spot-word').textContent = item.word;
+            document.getElementById('spot-word-back').textContent = item.word;
+            document.getElementById('spot-meaning').textContent = item.meaning;
+            document.getElementById('spot-example').textContent = item.example;
+
+            const synContainer = document.getElementById('spot-synonyms');
+            synContainer.innerHTML = item.synonyms.map(s =>
+                `<span class="bg-arctic-200/70 text-arctic-900 text-xs font-semibold px-2.5 py-0.5 rounded-md">${s}</span>`
+            ).join('');
+
+            // Reset flip state
+            isSpotlightFlipped = false;
+            document.getElementById('spotlight-inner').classList.remove('rotate-y-180');
+        }
+
+        function toggleSpotlightFlip() {
+            isSpotlightFlipped = !isSpotlightFlipped;
+            const inner = document.getElementById('spotlight-inner');
+            if (isSpotlightFlipped) {
+                inner.classList.add('rotate-y-180');
+            } else {
+                inner.classList.remove('rotate-y-180');
+            }
+        }
+
+        function nextSpotlight() {
+            if (currentVocabList.length === 0) return;
+            spotlightIdx = (spotlightIdx + 1) % currentVocabList.length;
+            renderSpotlightCard();
+        }
+
+        function prevSpotlight() {
+            if (currentVocabList.length === 0) return;
+            spotlightIdx = (spotlightIdx - 1 + currentVocabList.length) % currentVocabList.length;
+            renderSpotlightCard();
+        }
+
+        function speakWord(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-GB';
+                utterance.rate = 0.92;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        function renderFlashcardsGrid() {
+            const grid = document.getElementById('flashcards-grid');
+            if (currentVocabList.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-10 text-slate-500 bg-white rounded-2xl border border-arctic-200">No vocabulary words match your search.</div>`;
+                return;
+            }
+
+            grid.innerHTML = currentVocabList.map((item, idx) => `
+                <div onclick="this.querySelector('.card-inner').classList.toggle('rotate-y-180')" class="cursor-pointer perspective-1000 h-60 select-none group">
+                    <div class="card-inner relative w-full h-full transition-transform duration-500 transform-style-3d">
+                        <!-- Front -->
+                        <div class="absolute inset-0 backface-hidden bg-white rounded-2xl p-5 border border-arctic-200 shadow-sm group-hover:shadow-md group-hover:border-arctic-400 transition flex flex-col justify-between">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-arctic-600 bg-arctic-50 px-2 py-0.5 rounded-md">#${item.id}</span>
+                                <button onclick="event.stopPropagation(); speakWord('${item.word.replace(/'/g, "\\'")}')" class="text-slate-400 hover:text-arctic-700 p-1 rounded-lg transition" title="Pronounce">
+                                    <i class="fa-solid fa-volume-high text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="text-center my-auto px-1">
+                                <h4 class="text-lg font-bold text-arctic-950 leading-snug">${item.word}</h4>
+                                <p class="text-[11px] text-slate-400 mt-2">Click to flip</p>
+                            </div>
+                            <div class="flex flex-wrap gap-1 justify-center">
+                                ${item.synonyms.slice(0, 2).map(s => `<span class="text-[10px] bg-arctic-50 text-arctic-700 px-2 py-0.5 rounded-full border border-arctic-100">${s}</span>`).join('')}
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-arctic-900 text-white rounded-2xl p-4 shadow-md flex flex-col justify-between overflow-y-auto">
+                            <div>
+                                <div class="flex items-center justify-between border-b border-arctic-700 pb-1.5 mb-2">
+                                    <span class="font-bold text-sm text-arctic-200">${item.word}</span>
+                                    <span class="text-[10px] text-arctic-400">#${item.id}</span>
+                                </div>
+                                <p class="text-xs text-white/95 leading-relaxed mb-2">${item.meaning}</p>
+                                <div class="flex flex-wrap gap-1 mb-2">
+                                    ${item.synonyms.map(s => `<span class="text-[10px] bg-arctic-800 text-arctic-200 px-2 py-0.5 rounded">${s}</span>`).join('')}
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-arctic-200 italic bg-arctic-950/60 p-2 rounded-lg leading-snug">
+                                "${item.example}"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderVocabTable() {
+            const tbody = document.getElementById('vocab-table-body');
+            if (currentVocabList.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-8 text-slate-500">No matching words found.</td></tr>`;
+                return;
+            }
+            tbody.innerHTML = currentVocabList.map(item => `
+                <tr class="hover:bg-arctic-50/80 transition">
+                    <td class="py-3.5 px-4 font-bold text-arctic-600 text-xs">${item.id}</td>
+                    <td class="py-3.5 px-4 font-bold text-arctic-950 whitespace-nowrap">
+                        <div class="flex items-center gap-2">
+                            <span>${item.word}</span>
+                            <button onclick="speakWord('${item.word.replace(/'/g, "\\'")}')" class="text-slate-400 hover:text-arctic-700">
+                                <i class="fa-solid fa-volume-high text-xs"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td class="py-3.5 px-4 text-slate-700">${item.meaning}</td>
+                    <td class="py-3.5 px-4">
+                        <div class="flex flex-wrap gap-1">
+                            ${item.synonyms.map(s => `<span class="bg-arctic-100 text-arctic-800 text-xs font-medium px-2 py-0.5 rounded-md">${s}</span>`).join('')}
+                        </div>
+                    </td>
+                    <td class="py-3.5 px-4 text-xs text-slate-600 italic max-w-xs">"${item.example}"</td>
+                </tr>
+            `).join('');
+        }
+
+        function filterVocabulary() {
+            const query = document.getElementById('vocab-search').value.toLowerCase().trim();
+            currentVocabList = vocabularyData.filter(item =>
+                item.word.toLowerCase().includes(query) ||
+                item.meaning.toLowerCase().includes(query) ||
+                item.synonyms.some(s => s.toLowerCase().includes(query))
+            );
+            document.getElementById('vocab-count-badge').textContent = `Showing ${currentVocabList.length} / 28 words`;
+            spotlightIdx = 0;
+            renderSpotlightCard();
+            renderFlashcardsGrid();
+            renderVocabTable();
+        }
+
+        function shuffleVocab() {
+            for (let i = currentVocabList.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [currentVocabList[i], currentVocabList[j]] = [currentVocabList[j], currentVocabList[i]];
+            }
+            spotlightIdx = 0;
+            renderSpotlightCard();
+            renderFlashcardsGrid();
+            renderVocabTable();
+        }
+
+        function setVocabView(view) {
+            currentVocabView = view;
+            const cardsContainer = document.getElementById('vocab-cards-container');
+            const tableContainer = document.getElementById('vocab-table-container');
+            const btnCards = document.getElementById('btn-card-view');
+            const btnTable = document.getElementById('btn-table-view');
+
+            if (view === 'cards') {
+                cardsContainer.classList.remove('hidden');
+                tableContainer.classList.add('hidden');
+                btnCards.classList.add('bg-white', 'text-arctic-900', 'shadow-sm');
+                btnCards.classList.remove('text-arctic-700');
+                btnTable.classList.remove('bg-white', 'text-arctic-900', 'shadow-sm');
+                btnTable.classList.add('text-arctic-700');
+            } else {
+                cardsContainer.classList.add('hidden');
+                tableContainer.classList.remove('hidden');
+                btnTable.classList.add('bg-white', 'text-arctic-900', 'shadow-sm');
+                btnTable.classList.remove('text-arctic-700');
+                btnCards.classList.remove('bg-white', 'text-arctic-900', 'shadow-sm');
+                btnCards.classList.add('text-arctic-700');
+            }
+        }
+
+        // =====================================================================
+        // SECTION 2: QUIZ RENDERING & INTERACTION LOGIC
+        // =====================================================================
+        function updateQuizScores() {
+            let partACorrect = 0;
+            activeVocabQuestions.forEach(q => {
+                if (userAnswers[q.id] === true) partACorrect++;
+            });
+
+            let partBCorrect = 0;
+            tfngQuestions.forEach(q => {
+                if (userAnswers[q.id] === true) partBCorrect++;
+            });
+            completionQuestions.forEach(q => {
+                if (userAnswers[q.id] === true) partBCorrect++;
+            });
+
+            document.getElementById('part-a-score').textContent = `${partACorrect} / ${activeVocabQuestions.length} Correct`;
+            document.getElementById('part-b-score').textContent = `${partBCorrect} / ${tfngQuestions.length + completionQuestions.length} Correct`;
+            document.getElementById('quiz-score-display').textContent = `${partACorrect + partBCorrect} / ${activeVocabQuestions.length + tfngQuestions.length + completionQuestions.length}`;
+        }
+
+        function renderVocabQuiz() {
+            const container = document.getElementById('vocab-quiz-list');
+            container.innerHTML = activeVocabQuestions.map((q, index) => `
+                <div class="bg-white p-5 rounded-2xl border border-arctic-200 shadow-sm flex flex-col justify-between" id="card-${q.id}">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-arctic-600 bg-arctic-50 px-2.5 py-0.5 rounded-md">Question ${index + 1}</span>
+                            <span id="badge-${q.id}" class="text-xs font-bold hidden"></span>
+                        </div>
+                        <p class="text-sm sm:text-base font-semibold text-arctic-950 mb-4">${q.question}</p>
+                        <div class="space-y-2" id="opts-${q.id}">
+                            ${q.options.map((opt, optIdx) => `
+                                <button onclick="checkVocabMCQ('${q.id}', ${optIdx}, ${q.answer})" class="w-full text-left px-4 py-2.5 rounded-xl border border-arctic-200 hover:bg-arctic-50 text-sm font-medium text-slate-700 transition flex items-center justify-between">
+                                    <span>${opt}</span>
+                                    <i class="fa-regular fa-circle text-slate-300"></i>
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div id="exp-${q.id}" class="hidden mt-4 p-3 rounded-xl text-xs leading-relaxed"></div>
+                </div>
+            `).join('');
+        }
+
+        function checkVocabMCQ(qId, selectedIdx, correctIdx) {
+            const qObj = activeVocabQuestions.find(q => q.id === qId);
+            const optsContainer = document.getElementById(`opts-${qId}`);
+            const buttons = optsContainer.querySelectorAll('button');
+            const expBox = document.getElementById(`exp-${qId}`);
+            const badge = document.getElementById(`badge-${qId}`);
+
+            const isCorrect = selectedIdx === correctIdx;
+            userAnswers[qId] = isCorrect;
+
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.classList.remove('hover:bg-arctic-50', 'border-arctic-200');
+                const icon = btn.querySelector('i');
+                if (idx === correctIdx) {
+                    btn.classList.add('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'font-semibold');
+                    icon.className = 'fa-solid fa-circle-check text-emerald-600';
+                } else if (idx === selectedIdx && !isCorrect) {
+                    btn.classList.add('bg-rose-50', 'border-rose-500', 'text-rose-900');
+                    icon.className = 'fa-solid fa-circle-xmark text-rose-600';
+                } else {
+                    btn.classList.add('opacity-60', 'border-slate-200');
+                }
+            });
+
+            badge.classList.remove('hidden');
+            if (isCorrect) {
+                badge.textContent = "Correct ✓";
+                badge.className = "text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full";
+                expBox.className = "mt-4 p-3 rounded-xl text-xs leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200";
+            } else {
+                badge.textContent = "Incorrect ✗";
+                badge.className = "text-xs font-bold text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full";
+                expBox.className = "mt-4 p-3 rounded-xl text-xs leading-relaxed bg-rose-50 text-rose-900 border border-rose-200";
+            }
+            expBox.innerHTML = `<strong>Explanation:</strong> ${qObj.explanation}`;
+            updateQuizScores();
+        }
+
+        function renderTFNGQuiz() {
+            const container = document.getElementById('tfng-quiz-list');
+            container.innerHTML = tfngQuestions.map((q, idx) => `
+                <div class="p-4 rounded-xl border border-arctic-200/90 bg-arctic-50/30 space-y-3">
+                    <div class="flex items-start justify-between gap-3">
+                        <p class="text-sm font-medium text-arctic-950"><span class="font-bold text-arctic-700 mr-1.5">${idx + 1}.</span> ${q.statement}</p>
+                        <span id="badge-${q.id}" class="text-xs font-bold whitespace-nowrap hidden"></span>
+                    </div>
+                    <div class="flex flex-wrap gap-2" id="opts-${q.id}">
+                        ${['TRUE', 'FALSE', 'NOT GIVEN'].map(choice => `
+                            <button onclick="checkTFNG('${q.id}', '${choice}', '${q.answer}')" class="px-4 py-1.5 rounded-lg border border-arctic-300 bg-white hover:bg-arctic-100 text-xs font-bold text-arctic-900 transition">
+                                ${choice}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="exp-${q.id}" class="hidden p-3 rounded-lg text-xs leading-relaxed"></div>
+                </div>
+            `).join('');
+        }
+
+        function checkTFNG(qId, selected, correct) {
+            const qObj = tfngQuestions.find(q => q.id === qId);
+            const buttons = document.getElementById(`opts-${qId}`).querySelectorAll('button');
+            const expBox = document.getElementById(`exp-${qId}`);
+            const badge = document.getElementById(`badge-${qId}`);
+
+            const isCorrect = selected === correct;
+            userAnswers[qId] = isCorrect;
+
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                const val = btn.textContent.trim();
+                btn.classList.remove('bg-white', 'hover:bg-arctic-100', 'border-arctic-300', 'text-arctic-900');
+                if (val === correct) {
+                    btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
+                } else if (val === selected && !isCorrect) {
+                    btn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+                } else {
+                    btn.classList.add('bg-slate-100', 'text-slate-400', 'border-slate-200');
+                }
+            });
+
+            badge.classList.remove('hidden');
+            badge.textContent = isCorrect ? "Correct ✓" : `Answer: ${correct}`;
+            badge.className = isCorrect
+                ? "text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full whitespace-nowrap"
+                : "text-xs font-bold text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full whitespace-nowrap";
+
+            expBox.className = isCorrect
+                ? "p-3 rounded-lg text-xs leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200"
+                : "p-3 rounded-lg text-xs leading-relaxed bg-rose-50 text-rose-900 border border-rose-200";
+            expBox.innerHTML = `<strong>Evidence from Passage:</strong> ${qObj.explanation}`;
+            updateQuizScores();
+        }
+
+        function renderCompletionQuiz() {
+            const container = document.getElementById('completion-quiz-list');
+            container.innerHTML = completionQuestions.map((q, idx) => `
+                <div class="p-4 rounded-xl border border-arctic-200/90 bg-arctic-50/30 space-y-2.5">
+                    <div class="flex flex-wrap items-center gap-2 text-sm text-arctic-950 leading-relaxed">
+                        <span class="font-bold text-arctic-700">${idx + 8}.</span>
+                        <span>${q.promptBefore}</span>
+                        <input type="text" id="input-${q.id}" placeholder="ONE WORD" class="px-3 py-1 w-36 rounded-lg border border-arctic-300 bg-white text-sm font-semibold text-arctic-900 focus:outline-none focus:ring-2 focus:ring-arctic-500">
+                        <span>${q.promptAfter}</span>
+                        <button id="btn-${q.id}" onclick="checkCompletion('${q.id}')" class="px-3.5 py-1 rounded-lg bg-arctic-800 hover:bg-arctic-900 text-white text-xs font-semibold transition">
+                            Check
+                        </button>
+                        <span id="badge-${q.id}" class="text-xs font-bold hidden"></span>
+                    </div>
+                    <div id="exp-${q.id}" class="hidden p-3 rounded-lg text-xs leading-relaxed"></div>
+                </div>
+            `).join('');
+        }
+
+        function checkCompletion(qId) {
+            const qObj = completionQuestions.find(q => q.id === qId);
+            const inputEl = document.getElementById(`input-${qId}`);
+            const btnEl = document.getElementById(`btn-${qId}`);
+            const badge = document.getElementById(`badge-${qId}`);
+            const expBox = document.getElementById(`exp-${qId}`);
+
+            const userVal = inputEl.value.trim().toLowerCase();
+            if (!userVal) return;
+
+            const isCorrect = userVal === qObj.answer.toLowerCase();
+            userAnswers[qId] = isCorrect;
+
+            inputEl.disabled = true;
+            btnEl.disabled = true;
+            btnEl.classList.add('opacity-50');
+
+            badge.classList.remove('hidden');
+            if (isCorrect) {
+                inputEl.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+                badge.textContent = "Correct ✓";
+                badge.className = "text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full";
+                expBox.className = "p-3 rounded-lg text-xs leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200";
+            } else {
+                inputEl.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+                badge.textContent = `Correct word: ${qObj.answer}`;
+                badge.className = "text-xs font-bold text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full";
+                expBox.className = "p-3 rounded-lg text-xs leading-relaxed bg-rose-50 text-rose-900 border border-rose-200";
+            }
+            expBox.innerHTML = `<strong>Passage Verification:</strong> ${qObj.explanation}`;
+            updateQuizScores();
+        }
+
+        function resetAndShuffleQuiz() {
+            userAnswers = {};
+            // Shuffle Part A questions
+            for (let i = activeVocabQuestions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [activeVocabQuestions[i], activeVocabQuestions[j]] = [activeVocabQuestions[j], activeVocabQuestions[i]];
+            }
+            renderVocabQuiz();
+            renderTFNGQuiz();
+            renderCompletionQuiz();
+            updateQuizScores();
+        }
+
+        // =====================================================================
+        // SECTION 3: SPEAKING PRACTICE, CHIPS, TIMERS & AUDIO RECORDER
+        // =====================================================================
+        function showVocabHintBanner(wordStr) {
+            const match = vocabularyData.find(v => v.word.toLowerCase() === wordStr.toLowerCase());
+            if (!match) return;
+            const banner = document.getElementById('speaking-vocab-banner');
+            document.getElementById('svb-word').textContent = match.word;
+            document.getElementById('svb-synonyms').textContent = `Synonyms: ${match.synonyms.join(', ')}`;
+            document.getElementById('svb-meaning').textContent = match.meaning;
+            banner.classList.remove('hidden');
+            speakWord(match.word);
+        }
+
+        function renderSpeakingSection() {
+            // Render Part 2 chips
+            const part2Words = ["Majestic", "Extreme conditions", "Adipose tissue", "Obese", "Genome", "Agile", "Deliberate", "Thought-out", "Dislodge", "Depleting", "Maternity dens", "Cubs", "Far-reaching", "Hibernating", "Benefits", "Bedridden"];
+            document.getElementById('part2-vocab-chips').innerHTML = part2Words.map(w => `
+                <button onclick="showVocabHintBanner('${w}')" class="px-2.5 py-1 rounded-lg bg-white/15 hover:bg-white/25 text-white text-xs font-medium border border-white/20 transition flex items-center gap-1">
+                    <span>${w}</span>
+                    <i class="fa-solid fa-circle-info text-[10px] text-arctic-300"></i>
+                </button>
+            `).join('');
+
+            // Render Part 1 & Part 3 Cards
+            renderSpeakingCards('all');
+        }
+
+        function renderSpeakingCards(filter) {
+            const grid = document.getElementById('speaking-questions-grid');
+            const filtered = filter === 'all'
+                ? speakingPrompts
+                : speakingPrompts.filter(p => p.part === filter);
+
+            grid.innerHTML = filtered.map((item, idx) => `
+                <div class="bg-white p-5 sm:p-6 rounded-2xl border border-arctic-200 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <span class="inline-block text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ${item.part === 'part1' ? 'bg-sky-100 text-sky-800' : 'bg-indigo-100 text-indigo-800'}">
+                            ${item.partLabel}
+                        </span>
+                        <h4 class="text-base sm:text-lg font-bold text-arctic-950 leading-snug">"${item.question}"</h4>
+                        <div>
+                            <span class="text-xs font-semibold text-slate-500 block mb-1.5">Target Vocabulary Hints (Click to inspect):</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                ${item.hints.map(h => `
+                                    <button onclick="showVocabHintBanner('${h}')" class="px-2.5 py-1 rounded-lg bg-arctic-50 hover:bg-arctic-100 text-arctic-800 border border-arctic-200 text-xs font-semibold transition">
+                                        ${h}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-arctic-100">
+                        <button onclick="toggleSampleAnswer('sp-sample-${idx}')" class="text-xs font-bold text-arctic-700 hover:text-arctic-950 flex items-center gap-1.5 transition">
+                            <i class="fa-solid fa-comment-dots text-arctic-500"></i>
+                            <span>Toggle Band 8+ Sample Answer</span>
+                        </button>
+                        <div id="sp-sample-${idx}" class="hidden mt-3 p-3.5 rounded-xl bg-arctic-50 border border-arctic-200/80 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            "${item.sample}"
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterSpeakingPart(part) {
+            // Update active button style
+            document.querySelectorAll('.sp-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-arctic-800', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-arctic-800', 'border', 'border-arctic-200');
+            });
+            const active = document.getElementById(`sp-filter-${part}`);
+            active.classList.remove('bg-white', 'text-arctic-800', 'border', 'border-arctic-200');
+            active.classList.add('bg-arctic-800', 'text-white', 'shadow-sm');
+
+            const part2Box = document.getElementById('speaking-part2-container');
+            const grid = document.getElementById('speaking-questions-grid');
+
+            if (part === 'part2') {
+                part2Box.classList.remove('hidden');
+                grid.classList.add('hidden');
+            } else if (part === 'all') {
+                part2Box.classList.remove('hidden');
+                grid.classList.remove('hidden');
+                renderSpeakingCards('all');
+            } else {
+                part2Box.classList.add('hidden');
+                grid.classList.remove('hidden');
+                renderSpeakingCards(part);
+            }
+        }
+
+        function toggleSampleAnswer(elId) {
+            document.getElementById(elId).classList.toggle('hidden');
+        }
+
+        // Part 2 Countdown Timer Logic
+        let cueTimerInterval = null;
+        function startCueTimer(seconds, label) {
+            clearInterval(cueTimerInterval);
+            let remaining = seconds;
+            const display = document.getElementById('speaking-timer-display');
+            const modeLabel = document.getElementById('timer-mode-label');
+            modeLabel.textContent = label;
+            modeLabel.className = "text-xs font-bold uppercase tracking-wider text-amber-300";
+
+            function updateDisplay() {
+                const mins = String(Math.floor(remaining / 60)).padStart(2, '0');
+                const secs = String(remaining % 60).padStart(2, '0');
+                display.textContent = `${mins}:${secs}`;
+            }
+            updateDisplay();
+
+            cueTimerInterval = setInterval(() => {
+                remaining--;
+                if (remaining < 0) {
+                    clearInterval(cueTimerInterval);
+                    modeLabel.textContent = "Time's Up!";
+                    modeLabel.className = "text-xs font-bold uppercase tracking-wider text-rose-400";
+                    return;
+                }
+                updateDisplay();
+            }, 1000);
+        }
+
+        function stopCueTimer() {
+            clearInterval(cueTimerInterval);
+            document.getElementById('timer-mode-label').textContent = "Timer Ready";
+            document.getElementById('timer-mode-label').className = "text-xs font-bold uppercase tracking-wider text-arctic-300";
+            document.getElementById('speaking-timer-display').textContent = "01:00";
+        }
+
+        // Browser MediaRecorder Audio Practice
+        let mediaRecorder = null;
+        let audioChunks = [];
+
+        async function startRecording() {
+            const statusEl = document.getElementById('rec-status');
+            const fallbackEl = document.getElementById('rec-fallback-msg');
+            const audioEl = document.getElementById('audio-playback');
+            const btnStart = document.getElementById('btn-start-rec');
+            const btnStop = document.getElementById('btn-stop-rec');
+
+            fallbackEl.classList.add('hidden');
+
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                fallbackEl.textContent = "Audio recording is not supported in this browser environment. Practice aloud using the timers!";
+                fallbackEl.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+
+                mediaRecorder.ondataavailable = event => {
+                    if (event.data.size > 0) audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    audioEl.src = audioUrl;
+                    audioEl.classList.remove('hidden');
+                    stream.getTracks().forEach(track => track.stop());
+                };
+
+                mediaRecorder.start();
+                statusEl.textContent = "Recording...";
+                statusEl.className = "text-xs font-bold text-rose-600 animate-pulse";
+                btnStart.disabled = true;
+                btnStop.disabled = false;
+            } catch (err) {
+                fallbackEl.textContent = "Microphone access was blocked or unavailable in this preview frame. You can still practice speaking aloud with the built-in timers!";
+                fallbackEl.classList.remove('hidden');
+                statusEl.textContent = "Mic Blocked";
+            }
+        }
+
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+                document.getElementById('rec-status').textContent = "Saved Recording";
+                document.getElementById('rec-status').className = "text-xs font-bold text-emerald-700";
+                document.getElementById('btn-start-rec').disabled = false;
+                document.getElementById('btn-stop-rec').disabled = true;
+            }
+        }
+
+        // Initialize all modules on page load
+        window.onload = function () {
+            renderSpotlightCard();
+            renderFlashcardsGrid();
+            renderVocabTable();
+            renderVocabQuiz();
+            renderTFNGQuiz();
+            renderCompletionQuiz();
+            updateQuizScores();
+            renderSpeakingSection();
+        };
+    </script>
+</body>
+</html>
